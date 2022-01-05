@@ -277,16 +277,17 @@ extension SliderRow {
                     guard let value = value else { return "" }
                     let units = UserDefaultsRepository.units.value.description
                     
+                    // Commenting out code block for "Play haptic sound" to avoid build error
                     // Play haptic sound
-                    if value.truncatingRemainder(dividingBy: snapIncrement) == 0 {
-                        if let lastAssignedValue = row.lastSelectedValue {
-                            if Int(lastAssignedValue * 10) != Int(value * 10) {
-                                let uiImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
-                                uiImpactFeedbackGenerator.impactOccurred()
-                            }
-                        }
-                    }
-                    row.lastSelectedValue = value
+//                    if value.truncatingRemainder(dividingBy: snapIncrement) == 0 {
+//                        if let lastAssignedValue = row.lastSelectedValue {
+//                            if Int(lastAssignedValue * 10) != Int(value * 10) {
+//                                let uiImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
+//                                uiImpactFeedbackGenerator.impactOccurred()
+//                            }
+//                        }
+//                    }
+//                    row.lastSelectedValue = value
                     
                     return String("\(value.cleanValue) \(units)")
                 }
